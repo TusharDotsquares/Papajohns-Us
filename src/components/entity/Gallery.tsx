@@ -31,7 +31,7 @@ const Gallery = (props: GalleryProps) => {
     </svg>
   );
   const showControls = !props.hideArrows || !props.hideNav;
-
+  console.log("props.images", props.images);
   return (
     <div className="Gallery bg-brand-gray-100 py-8 sm:py-16">
       <div className="container">

@@ -9,5 +9,5 @@ import type { TemplateProps } from "src/types/entities";
  * take on the form: featureName/entityId
  */
 export const getPath: GetPath<TemplateProps<LocationProfile>> = (data) => {
-  return data.document.slug;
+  return data.document.slug ? data.document.slug : data.document.id;
 };

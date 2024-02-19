@@ -123,6 +123,7 @@ export interface LocationProfile extends BaseProfile {
   readonly description?: string;
   readonly emails?: string[];
   readonly services: string[];
+  readonly c_pagesDeals1: ComplexImage;
   readonly photoGallery: ComplexImage[];
   readonly googlePlaceId?: string;
   readonly ref_listings?: ListingType[];

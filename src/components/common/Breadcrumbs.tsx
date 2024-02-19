@@ -35,25 +35,26 @@ const Breadcrumbs = (props: BreadcrumbsPropsDefault) => {
           aria-label="Breadcrumb"
         >
           <ol className="flex flex-wrap">
-            {breadcrumbs.map(({ name, slug }, idx) => {
-              const isLast = idx === breadcrumbs.length - 1;
+            {breadcrumbs &&
+              breadcrumbs.map(({ name, slug }, idx) => {
+                const isLast = idx === breadcrumbs.length - 1;
 
-              return (
-                <li key={idx}>
-                  <Breadcrumb
-                    name={name}
-                    slug={isLast ? "" : relativePrefixToRoot + slug}
-                    index={idx}
-                    {...props}
-                  />
-                  {!isLast && (
-                    <span className="mx-2 text-brand-gray-400">
-                      {separator}
-                    </span>
-                  )}
-                </li>
-              );
-            })}
+                return (
+                  <li key={idx}>
+                    <Breadcrumb
+                      name={name}
+                      slug={isLast ? "" : relativePrefixToRoot + slug}
+                      index={idx}
+                      {...props}
+                    />
+                    {!isLast && (
+                      <span className="mx-2 text-brand-gray-400">
+                        {separator}
+                      </span>
+                    )}
+                  </li>
+                );
+              })}
           </ol>
         </nav>
       )}

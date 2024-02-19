@@ -9,5 +9,6 @@ import { TemplateProps } from "src/types/entities";
  * take on the form: featureName/entityId
  */
 export const getPath: GetPath<TemplateProps<SearchPageProfile>> = (data) => {
+  console.log("data.document", data.document);
   return data.document.slug;
 };
