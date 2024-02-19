@@ -47,7 +47,7 @@ const MainInternal = (props: MainProps) => {
       {children}
       <ErrorBoundaryWithAnalytics name="footer">
         <Footer
-          copyrightMessage={_site.c_copyrightMessage || ""}
+          copyrightMessage={_site?.c_copyrightMessage || ""}
           facebook={_site?.c_facebook}
           instagram={_site?.c_instagram}
           youtube={_site?.c_youtube}
