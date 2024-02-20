@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { HoursTable } from "@yext/sites-react-components";
+import { HoursStatus, HoursTable } from "@yext/sites-react-components";
 import {
   Link,
   Address,
@@ -55,18 +55,17 @@ const Core = (props: CoreProps) => {
       <div className="container">
         <div className="flex flex-row flex-wrap">
           <CoreSection>
-            <CoreHeading>Information</CoreHeading>
+            <CoreHeading>{profile.name}</CoreHeading>
             <Address address={profile.address} />
-            <Link
-              className="Link--primary Link--underline font-bold mt-2"
-              href={`${getDirections(
-                profile.address,
-                profile.ref_listings,
-                profile.googlePlaceId
-              )}`}
-            >
-              Get Directions
-            </Link>
+            {profile.deliveryHours && (
+              <div className="mb-4">
+                <HoursStatus
+                  hours={profile.deliveryHours}
+                  separatorTemplate={() => <span className="bullet" />}
+                  dayOfWeekTemplate={() => null}
+                />
+              </div>
+            )}
             {/* TODO(GENERATOR): use Phone component */}
             {profile.mainPhone && (
               <div className="flex items-center mt-4">
@@ -92,15 +91,29 @@ const Core = (props: CoreProps) => {
               </div>
             )}
           </CoreSection>
-          {(profile.hours || profile.additionalHoursText) && (
+          {(profile.deliveryHours || profile.additionalHoursText) && (
             <CoreSection>
-              <CoreHeading>Hours</CoreHeading>
-              {profile.hours && (
-                <HoursTable hours={profile.hours} startOfWeek="Monday" />
+              <CoreHeading>DELIVERY HOURS</CoreHeading>
+              {profile.deliveryHours && (
+                <HoursTable
+                  hours={profile.deliveryHours}
+                  startOfWeek="Monday"
+                />
               )}
-              {profile.additionalHoursText && (
+              {/* {profile.additionalHoursText && (
                 <div className="mt-4">{profile.additionalHoursText}</div>
+              )} */}
+            </CoreSection>
+          )}
+          {(profile.takeoutHours || profile.additionalHoursText) && (
+            <CoreSection>
+              <CoreHeading>CARRYOUT HOURS </CoreHeading>
+              {profile.deliveryHours && (
+                <HoursTable hours={profile.takeoutHours} startOfWeek="Monday" />
               )}
+              {/* {profile.additionalHoursText && (
+                <div className="mt-4">{profile.additionalHoursText}</div>
+              )} */}
             </CoreSection>
           )}
           {profile.services && (
@@ -115,6 +128,34 @@ const Core = (props: CoreProps) => {
               </ul>
             </CoreSection>
           )}
+        </div>
+        <div className="w-full md:w-1/2 flex flex-raw gap-8">
+          {profile.c_cTA1URL && (
+            <Link
+              className="inline-flex self-start Button Button--secondary"
+              href={profile.c_cTA1URL}
+            >
+              {profile.c_cTA1Text}
+            </Link>
+          )}
+          {profile.c_pagesCTA2URL && (
+            <Link
+              className="inline-flex self-start Button Button--secondary"
+              href={profile.c_pagesCTA2URL}
+            >
+              {profile.c_pagesCTA2Text}
+            </Link>
+          )}
+          <Link
+            className="inline-flex self-start Button Button--secondary"
+            href={`${getDirections(
+              profile.address,
+              profile.ref_listings,
+              profile.googlePlaceId
+            )}`}
+          >
+            Directions
+          </Link>
         </div>
         {isDesktopBreakpoint && profile.yextDisplayCoordinate && (
           <LazyLoadWrapper>

@@ -21,16 +21,14 @@ const DirectoryCard: CardComponent<
           {profile.name}
         </MaybeLink>
       </h3>
-
-      {profile.hours && (
-        <div className="mb-4 text-sm">
-          <HoursStatus hours={profile.hours} />
-        </div>
-      )}
-
       {profile.address && (
         <div className="text-sm">
           <Address address={profile.address} lines={[["line1"]]} />
+        </div>
+      )}
+      {profile.deliveryHours && (
+        <div className="mb-4 text-sm">
+          <HoursStatus hours={profile.deliveryHours} />
         </div>
       )}
     </div>

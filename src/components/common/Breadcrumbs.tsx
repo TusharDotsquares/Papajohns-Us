@@ -29,7 +29,7 @@ const Breadcrumbs = (props: BreadcrumbsPropsDefault) => {
 
   return (
     <ErrorBoundaryWithAnalytics name="breadcrumbs">
-      {breadcrumbs?.length && (
+      {breadcrumbs?.length > 0 && (
         <nav
           className={classNames("Breadcrumbs my-4", className)}
           aria-label="Breadcrumb"

@@ -41,7 +41,8 @@ const EntityLayout = ({ data }: EntityLayoutProps) => {
     name,
     address,
     description,
-    hours,
+    deliveryHours,
+    takeoutHours,
     photoGallery,
     c_bannerSection: banner,
     c_heroSection: hero,
@@ -82,18 +83,18 @@ const EntityLayout = ({ data }: EntityLayoutProps) => {
           className="container"
         />
       </ErrorBoundaryWithAnalytics>
-      <ErrorBoundaryWithAnalytics name="hero">
+      {/* <ErrorBoundaryWithAnalytics name="hero">
         <Hero
           name={name}
           cta1={hero?.cta1}
           cta2={hero?.cta2}
           address={address}
           background={hero?.background}
-          hours={hours}
+          hours={deliveryHours}
           numReviews={21}
           rating={4.5}
         />
-      </ErrorBoundaryWithAnalytics>
+      </ErrorBoundaryWithAnalytics> */}
       <ErrorBoundaryWithAnalytics name="core">
         <Core profile={data.document} />
       </ErrorBoundaryWithAnalytics>

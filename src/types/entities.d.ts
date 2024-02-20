@@ -111,7 +111,12 @@ export interface LocationProfile extends BaseProfile {
   readonly address: Address;
   readonly yextDisplayCoordinate: Coordinate;
   readonly slug: string;
-  readonly hours?: Hours;
+  readonly deliveryHours?: Hours;
+  readonly takeoutHours?: Hours;
+  readonly c_cTA1URL?: string;
+  readonly c_cTA1Text?: string;
+  readonly c_pagesCTA2Text?: string;
+  readonly c_pagesCTA2URL?: string;
   readonly additionalHoursText?: string;
   readonly mainPhone?: string;
   readonly fax?: string;
