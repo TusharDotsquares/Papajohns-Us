@@ -68,8 +68,7 @@ const Nearby = (props: NearbyProps) => {
   const { document, relativePrefixToRoot } = useTemplateData();
   const search_path =
     document?._site?.c_searchPage?.slug || FALLBACK_SEARCH_PATH;
-  const apiKey =
-    document._site.c_nearbySectionAPIKey || YEXT_PUBLIC_NEARBY_API_KEY;
+  const apiKey = YEXT_PUBLIC_NEARBY_API_KEY;
   const [nearbyLocations, setNearbyLocations] = useState<
     LiveAPIProfile<LocationProfile>[]
   >([]);
