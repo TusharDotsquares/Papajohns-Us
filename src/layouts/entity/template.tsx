@@ -56,7 +56,7 @@ const EntityLayout = ({ data }: EntityLayoutProps) => {
     c_eventsSection: events,
     c_insightsSection: insights,
     c_reviewsSection: reviews,
-    dm_directoryParents: directoryParents,
+    dm_directoryParents_defaultdirectory: directoryParents,
   } = data.document;
 
   const showBanner = banner?.text && banner?.image;

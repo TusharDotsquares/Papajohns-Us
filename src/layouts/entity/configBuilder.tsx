@@ -104,6 +104,13 @@ export const configBuilder: (
       "c_videoPromo2",
       "c_videoPromo3",
       "c_videoSectionTitle",
+      "dm_directoryParents_defaultdirectory.name",
+      "dm_directoryParents_defaultdirectory.slug",
+      "dm_directoryParents_defaultdirectory.meta.entityType",
+      "dm_directoryParents_defaultdirectory.dm_directoryParents_defaultdirectory.name",
+      "dm_directoryParents_defaultdirectory.dm_directoryParents_defaultdirectory.slug",
+      "dm_directoryParents_defaultdirectory.dm_directoryParents_defaultdirectory.dm_directoryParents_defaultdirectory.name",
+      "dm_directoryParents_defaultdirectory.dm_directoryParents_defaultdirectory.dm_directoryParents_defaultdirectory.slug",
     ]),
     // Defines the scope of entities that qualify for this stream.
     filter: filter || {

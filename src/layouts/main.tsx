@@ -53,7 +53,9 @@ const MainInternal = (props: MainProps) => {
           youtube={_site?.c_youtube}
           twitter={_site?.c_twitter}
           linkedIn={_site?.c_linkedIn}
-          footerLinks={_site?.c_footerLinks || []}
+          c_footerOurCompany={_site?.c_footerOurCompany || []}
+          c_footerOurPizza={_site?.c_footerOurPizza || []}
+          c_footerOurHelp={_site?.c_footerOurHelp || []}
         />
       </ErrorBoundaryWithAnalytics>
     </TemplateDataProvider>

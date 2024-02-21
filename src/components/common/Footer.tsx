@@ -15,7 +15,9 @@ interface FooterProps {
   twitter?: string;
   facebook?: string;
   instagram?: string;
-  footerLinks: CTA[];
+  c_footerOurCompany: CTA[];
+  c_footerOurPizza: CTA[];
+  c_footerOurHelp: CTA[];
 }
 
 const Footer = (props: FooterProps) => {
@@ -29,20 +31,43 @@ const Footer = (props: FooterProps) => {
     { link: props.twitter, label: <FaTwitter className="w-5 h-5 mr-4" /> },
   ].filter((link) => link.link);
 
-  const footerLinks = props.footerLinks || [];
+  const c_footerOurCompany = props.c_footerOurCompany || [];
+  const c_footerOurPizza = props.c_footerOurPizza || [];
+  const c_footerOurHelp = props.c_footerOurHelp || [];
 
   return (
     <footer className="Footer py-8 sm:py-16">
       <div className="container">
         <div className="flex flex-col sm:flex-row items-center justify-between">
-          <div className="flex flex-col sm:flex-row items-center">
-            {footerLinks.map((link, i) => (
-              <Link
-                className="Link Link--primary mb-4 sm:mb-0 sm:mr-4"
-                key={i}
-                cta={link}
-              />
-            ))}
+          <div className="flex flex-col sm:flex-col items-center">
+            {c_footerOurCompany &&
+              c_footerOurCompany.map((link, i) => (
+                <Link
+                  className="Link Link--primary mb-4 sm:mb-0 "
+                  key={i}
+                  cta={link}
+                />
+              ))}
+          </div>
+          <div className="flex flex-col sm:flex-col items-center">
+            {c_footerOurPizza &&
+              c_footerOurPizza.map((link, i) => (
+                <Link
+                  className="Link Link--primary mb-4 sm:mb-0 "
+                  key={i}
+                  cta={link}
+                />
+              ))}
+          </div>
+          <div className="flex flex-col sm:flex-col items-center">
+            {c_footerOurHelp &&
+              c_footerOurHelp.map((link, i) => (
+                <Link
+                  className="Link Link--primary mb-4 sm:mb-0 "
+                  key={i}
+                  cta={link}
+                />
+              ))}
           </div>
 
           <div className="my-4 sm:my-0 flex flex-row items-center justify-center sm:justify-end">

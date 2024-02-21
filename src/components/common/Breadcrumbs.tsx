@@ -8,6 +8,7 @@ interface BreadcrumbsPropsDefault {
   breadcrumbs: Array<{ slug: string; name: string }>;
   separator?: ReactNode;
   className?: string;
+  skipIndex?: number;
 }
 
 /*
@@ -24,7 +25,7 @@ interface BreadcrumbsPropsDefault {
  *          between each breadcrumb - defaults to '/', also accepts any HTML element (<svg>, <img>, etc)
  */
 const Breadcrumbs = (props: BreadcrumbsPropsDefault) => {
-  const { breadcrumbs, className, separator = "/" } = props;
+  const { breadcrumbs, className, separator = "/", skipIndex } = props;
   const { relativePrefixToRoot } = useTemplateData();
 
   return (
@@ -37,6 +38,7 @@ const Breadcrumbs = (props: BreadcrumbsPropsDefault) => {
           <ol className="flex flex-wrap">
             {breadcrumbs &&
               breadcrumbs.map(({ name, slug }, idx) => {
+                if (idx === skipIndex) return null;
                 const isLast = idx === breadcrumbs.length - 1;
 
                 return (

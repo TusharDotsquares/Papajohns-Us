@@ -44,7 +44,9 @@ export interface SiteProfile extends BaseProfile {
   readonly c_youtube?: string;
   readonly c_twitter?: string;
   readonly c_linkedIn?: string;
-  readonly c_footerLinks?: CTA[];
+  readonly c_footerOurCompany?: CTA[];
+  readonly c_footerOurPizza?: CTA[];
+  readonly c_footerOurHelp?: CTA[];
   readonly c_header?: {
     readonly logo?: Image;
     readonly logoLink?: string;
@@ -194,14 +196,20 @@ export interface LocationProfile extends BaseProfile {
     readonly title?: string;
     readonly reviews?: ReviewProfile[];
   };
-  readonly dm_directoryParents?: Array<{ slug: string; name: string }>;
+  readonly dm_directoryParents_defaultdirectory?: Array<{
+    slug: string;
+    name: string;
+  }>;
 }
 
 export type DirectoryProfile<T> = BaseProfile & {
   readonly name: string;
   readonly dm_baseEntityCount: number;
   readonly dm_directoryChildren?: T[];
-  readonly dm_directoryParents?: Array<{ slug: string; name: string }>;
+  readonly dm_directoryParents_defaultdirectory?: Array<{
+    slug: string;
+    name: string;
+  }>;
   readonly slug: string;
 };
 
