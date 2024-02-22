@@ -8,7 +8,7 @@ export const configBuilder: (
   filter?: Stream["filter"]
 ) => TemplateConfig = (id?: string, filter?: Stream["filter"]) => ({
   stream: {
-    $id: id || "directory-region",
+    $id: id || "directory-country",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
     fields: [
@@ -18,17 +18,17 @@ export const configBuilder: (
       "name",
       "slug",
       "c_meta",
-      "c_addressCountryDisplayName",
       // Directory List Fields
       "dm_directoryParents_defaultdirectory.slug",
       "dm_directoryParents_defaultdirectory.name",
       "dm_directoryChildren.slug",
       "dm_directoryChildren.name",
+      "dm_directoryChildren.c_addressCountryDisplayName",
       "dm_directoryChildren.dm_baseEntityCount",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: filter || {
-      savedFilterIds: ["dm_defaultDirectory_address_region"],
+      savedFilterIds: ["dm_defaultDirectory_address_countrycode"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {

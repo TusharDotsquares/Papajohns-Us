@@ -204,6 +204,7 @@ export interface LocationProfile extends BaseProfile {
 
 export type DirectoryProfile<T> = BaseProfile & {
   readonly name: string;
+  readonly c_addressCountryDisplayName: string;
   readonly dm_baseEntityCount: number;
   readonly dm_directoryChildren?: T[];
   readonly dm_directoryParents_defaultdirectory?: Array<{
